@@ -1,0 +1,24 @@
+{
+  "name": "unit-tests",
+  "version": "1.0.0",
+  "description": "tests",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Anastasiya-Mi?tab=repositories"
+  },
+  "keywords": [
+    "unit",
+    "testing"
+  ],
+  "author": "Anastasiya-Mi",
+  "license": "ISC",
+  "devDependencies": {
+    "@jest/globals": "^29.5.0",
+    "jest": "^29.5.0"
+  },
+  "type": "module"
+}
