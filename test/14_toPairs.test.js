@@ -10,4 +10,7 @@ describe("toPairs tests", () => {
     test("Returns empty object if argument is not invalid", () => {
         expect(toPairs('users')).toEqual({});
     });  
+    test("Returns empty object if argument is not invalid", () => {
+        expect(toPairs()).toEqual({});
+    });
 });

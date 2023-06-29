@@ -7,13 +7,13 @@ function pick(object, value) {
     case "object":
       for (let i = 0; i < value.length; i++) {
         const currentKey = value[i];
-        if (object.hasOwnProperty(currentKey)) {
+        if (Object.hasOwn(object, currentKey)) {
           result[currentKey] = object[currentKey];
         }
       }
       return result;
     case "string":
-      if (object.hasOwnProperty(value)) {
+      if (Object.hasOwn(object, value)) {
         result[value] = object[value];
         return result;
       }

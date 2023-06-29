@@ -24,5 +24,8 @@ describe("map tests", () => {
     });
     test("Returns empty array if argument is not invalid", () => {
         expect(map(1)).toEqual([]);
-    });    
+    }); 
+    test("Returns empty array if argument is not invalid", () => {
+        expect(map()).toEqual([]);
+    });   
 });

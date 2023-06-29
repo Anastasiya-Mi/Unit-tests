@@ -1,3 +1,5 @@
+const { slicePoly, forEachPoly } = require("../src/00_utils");
+
 function dropWhile(array, predicate) {
   if (!Array.isArray(array) || !predicate) {
     return [];
@@ -5,9 +7,9 @@ function dropWhile(array, predicate) {
   const typeOfPredicate = typeof predicate;
   if (Array.isArray(predicate)) {
     const value = predicate[0];
-    array.forEach((element) => {
+    forEachPoly(array, (element) => {
       if (!element[value]) {
-        array = array.slice(1);
+        array = slicePoly(array, 1);
       }
     });
     return array;
@@ -16,20 +18,20 @@ function dropWhile(array, predicate) {
     case "object":
       const value = Object.values(predicate)[0];
       const key = Object.keys(predicate)[0];
-      array.forEach((element) => {
+      forEachPoly(array, (element) => {
         if (element[key] === value) {
-          array = array.slice(1);
+          array = slicePoly(array, 1);
         }
       });
       return array;
     case "function":
       while (array.length > 0 && predicate(array[0])) {
-        array = array.slice(1);
+        array = slicePoly(array, 1);
       }
       return array;
     case "string":
-      array.forEach((element) => {
-        if (!element.hasOwnProperty(predicate)) array = array.slice(1);
+      forEachPoly(array, (element) => {
+        if (!Object.hasOwn(element, predicate)) array = array.slice(1);
       });
       return array;
     default:

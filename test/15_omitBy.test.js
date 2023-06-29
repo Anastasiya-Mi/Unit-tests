@@ -20,4 +20,7 @@ describe("omitBy tests", () => {
     test("Returns empty object if argument is not invalid", () => {
         expect(omitBy(object, 1)).toEqual({});
     });
+    test("Returns empty object if argument is not invalid", () => {
+        expect(omitBy()).toEqual({});
+    });
 });

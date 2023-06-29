@@ -12,4 +12,7 @@ describe("merge tests", () => {
     test("Returns empty object if first argument invalid", () => {
         expect(merge('users', 'user')).toEqual({});
     });    
+    test("Returns empty object if first argument invalid", () => {
+        expect(merge()).toEqual({});
+    }); 
 });

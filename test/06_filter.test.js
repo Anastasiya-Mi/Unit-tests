@@ -38,4 +38,7 @@ describe("filter tests", () => {
   test("Returns an empty array if argument is not an array ", () => {
     expect(filter("users")).toEqual([]);
   });
+  test("Returns an empty array if arguments invalid ", () => {
+    expect(filter()).toEqual([]);
+  });
 });

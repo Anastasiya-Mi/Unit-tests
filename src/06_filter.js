@@ -1,3 +1,5 @@
+const { pushPoly, forEachPoly } = require("../src/00_utils");
+
 function filter(array, predicate) {
   const newArray = [];
   if (!Array.isArray(array) || !predicate) {
@@ -6,9 +8,9 @@ function filter(array, predicate) {
   const typeOfPredicate = typeof predicate;
   if (Array.isArray(predicate)) {
     const value = predicate[0];
-    array.forEach((element) => {
+    forEachPoly(array, (element) => {
       if (!element[value]) {
-        newArray.push(element);
+        pushPoly(newArray, element);
       }
     });
     return newArray;
@@ -17,25 +19,25 @@ function filter(array, predicate) {
     case "object":
       const value = Object.values(predicate)[1];
       const key = Object.keys(predicate)[1];
-      array.forEach((element) => {
+      forEachPoly(array, (element) => {
         if (element[key] === value) {
-          newArray.push(element);
+          pushPoly(newArray, element);
         }
       });
       return newArray;
     case "function":
-      array.forEach((element) => {
+      forEachPoly(array, (element) => {
         const result = predicate(element);
         if (result) {
-          newArray.push(element);
+          pushPoly(newArray, element);
         }
       });
 
       return newArray;
     case "string":
-      array.forEach((element) => {        
+      forEachPoly(array, (element) => {
         if (element[predicate]) {
-          newArray.push(element);
+          pushPoly(newArray, element);
         }
       });
       return newArray;

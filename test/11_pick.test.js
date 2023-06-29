@@ -13,5 +13,8 @@ describe("pick tests", () => {
     test("Returns empty object if argument is not invalid", () => {
         expect(pick('users', 'user')).toEqual({});
     });
+    test("Returns empty object if argument is not invalid", () => {
+        expect(pick()).toEqual({});
+    });
        
 });

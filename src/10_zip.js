@@ -1,4 +1,7 @@
 function zip(...array) {
+  const result = [];
+  let wrap = [];
+  let count = 0;  
   const length = array.length;
   const checkValue = array.filter((item) => Array.isArray(item));
   if (checkValue.length !== length) {
@@ -7,9 +10,7 @@ function zip(...array) {
   if (length === 1) {
     return array;
   }
-  const result = [];
-  let wrap = [];
-  let count = 0;  
+ 
   while (count !== length) {
     checkValue.forEach((element) => {      
       if (element[count] === undefined) {

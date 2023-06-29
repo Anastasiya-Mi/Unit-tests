@@ -1,12 +1,14 @@
+const { slicePoly } = require("../src/00_utils");
+
 function take(array, countOfItems) {
   const start = 0;
   if (!(typeof countOfItems === "number") && Array.isArray(array)) {
-    return array.slice(start, start + 1);
+    return slicePoly(array, start, start + 1);
   }
   if (!Array.isArray(array)) {
     return [];
   }
-  return array.slice(start, countOfItems);
+  return slicePoly(array, start, countOfItems);
 }
 
 module.exports = take;

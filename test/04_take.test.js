@@ -20,7 +20,7 @@ describe("take tests", () => {
     expect(take([], 0)).toEqual([]);
   });
   test("Returns the slice of array if count less than zero", () => {
-    expect(take([1, 2, 3, 4], -2)).toEqual([1, 2]);
+    expect(take([1, 2, 3, 4], -2)).toEqual([]);
   });
   test("Returns the slice of array if count not a number", () => {
     expect(take([1, 2, 3, 4], "dd")).toEqual([1]);
@@ -28,7 +28,10 @@ describe("take tests", () => {
   test("Returns an empty array  if array not an array", () => {
     expect(take("aaaaa", 1)).toEqual([]);
   });
-  test("Returns the empty array if both argument is not invalid", () => {
+  test("Returns the empty array if both argument invalid", () => {
     expect(take("aaaaa", "a")).toEqual([]);
+  });
+  test("Returns the empty array if both argument invalid", () => {
+    expect(take()).toEqual([]);
   });
 });

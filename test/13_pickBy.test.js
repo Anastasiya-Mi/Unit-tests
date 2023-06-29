@@ -20,4 +20,7 @@ describe("pickBy tests", () => {
     test("Returns empty object if argument is not invalid", () => {
         expect(pickBy(object, 1)).toEqual({});
     });
+    test("Returns empty object if argument is not invalid", () => {
+        expect(pickBy()).toEqual({});
+    });
 });

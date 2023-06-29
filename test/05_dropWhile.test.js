@@ -39,4 +39,7 @@ describe("dropWhile tests", () => {
   test("Returns an empty array if argument is not an array ", () => {
     expect(dropWhile("users")).toEqual([]);
   });
+  test("Returns an empty array if argument is not an array ", () => {
+    expect(dropWhile()).toEqual([]);
+  });
 });
