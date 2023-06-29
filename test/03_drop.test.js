@@ -28,7 +28,10 @@ describe("drop tests", () => {
   test("Returns an empty array  if array not an array", () => {
     expect(drop("aaaaa", 1)).toEqual([]);
   });
-  test("Returns the empty array if both argument is not invalid", () => {
+  test("Returns the empty array if both argument invalid", () => {
     expect(drop("aaaaa", "a")).toEqual([]);
+  });
+  test("Returns the empty array if both argument invalid", () => {
+    expect(drop()).toEqual([]);
   });
 });

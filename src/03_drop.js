@@ -1,13 +1,15 @@
-function drop(array, countOfItems) {
+const { slicePoly } = require("../src/00_utils");
+
+function drop(array, countOfItems=1) {
+  if (!Array.isArray(array)) {
+    return [];
+  } 
   const end = array.length;
   if (!(typeof countOfItems === "number") && Array.isArray(array)) {
     const start = 1;
-    return array.slice(start, end);
+    return slicePoly(array,start, end);
   }
-  if (!Array.isArray(array)) {
-    return [];
-  }
-  return array.slice(countOfItems, end);
+  return slicePoly(array,countOfItems, end);
 }
 
 module.exports = drop;

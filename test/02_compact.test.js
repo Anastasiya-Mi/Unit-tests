@@ -5,7 +5,7 @@ describe("compact tests", () => {
     expect(compact(["a", "b", "c", "d"])).toBeDefined();
   });
   test("Returns the filter array", () => {
-    expect(compact([0, 1, false, 2, "", 3])).toEqual([1, 2, 3]);
+    expect(compact([0, 1, false, 2, "", 3,-1])).toEqual([1, 2, 3, -1]);
   });
   test("Returns the filter array", () => {
     expect(compact(["a", "b", "c", "d"])).toEqual(["a", "b", "c", "d"]);
@@ -15,5 +15,8 @@ describe("compact tests", () => {
   });
   test("Returns the empty array if argument is not an array", () => {
     expect(compact("aaaaa")).toEqual([]);
+  });
+  test("Returns an empty array if both arguments are invalid", () => {
+    expect(compact()).toEqual([]);
   });
 });
