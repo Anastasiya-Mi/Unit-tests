@@ -1,3 +1,6 @@
+const { pushPoly,slicePoly} = require("../src/00_utils");
+
+
 function chunk(array, num) {
   let size = Math.round(num);
   if (size < 0) size = Math.abs(size);
@@ -5,7 +8,7 @@ function chunk(array, num) {
   let index = 0;
   if (size > 0 && Array.isArray(array)) {
     while (index < array.length) {
-      chunkedArr.push(array.slice(index, size + index));
+      pushPoly(chunkedArr,slicePoly(array,index, size + index));
       index += size;
     }
     return chunkedArr;
