@@ -17,9 +17,6 @@ function slicePoly(array, start, end) {
   return result;
 }
 
-function checkValue(value){
-  if(value) return true;
-}
 function filterPoly(array, callback) {
   let result = [];
   for (let i = 0; i < array.length; i++) {
@@ -42,4 +39,4 @@ function includesPoly(array,value,fromIndex=0){
   return false;
 }
 
-module.exports = { pushPoly, slicePoly, filterPoly,checkValue,forEachPoly,includesPoly };
+module.exports = { pushPoly, slicePoly, filterPoly,forEachPoly,includesPoly };

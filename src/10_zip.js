@@ -1,9 +1,11 @@
+const { pushPoly,filterPoly,slicePoly,forEachPoly } = require("../src/00_utils");
+
 function zip(...array) {
   const result = [];
   let wrap = [];
   let count = 0;  
   const length = array.length;
-  const checkValue = array.filter((item) => Array.isArray(item));
+  const checkValue = filterPoly(array,(item) => Array.isArray(item));
   if (checkValue.length !== length) {
     return [];
   }
@@ -12,20 +14,19 @@ function zip(...array) {
   }
  
   while (count !== length) {
-    checkValue.forEach((element) => {      
+    forEachPoly(checkValue,((element) => {      
       if (element[count] === undefined) {
         return;
       } else {
-        wrap.push(element[count]);
-        element.slice(0, 1);
+        pushPoly(wrap,element[count]);
+        slicePoly(element,0, 1);
       }
-    });
-
-    result.push(wrap);
+    }));
+    pushPoly(result,wrap);    
     wrap = [];
     count++;
   }
-  const checkResult = result.filter((item) => item.length > 0);
+  const checkResult = filterPoly(result,(item) => item.length > 0);
   return checkResult;
 }
 
