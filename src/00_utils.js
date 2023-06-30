@@ -27,16 +27,50 @@ function filterPoly(array, callback) {
   return result;
 }
 
-function forEachPoly(array,callback){
+function forEachPoly(array, callback) {
   for (let i = 0; i < array.length; i++) {
-     callback(array[i], i, array);
-  }   
+    callback(array[i], i, array);
+  }
 }
-function includesPoly(array,value,fromIndex=0){
+function includesPoly(array, value, fromIndex = 0) {
   for (let i = fromIndex; i < array.length; i++) {
-     if(array[i] === value) return true;
-  }   
+    if (array[i] === value) return true;
+  }
   return false;
 }
+function mapPoly(array, callback) {
+  const result = [];
+  for (let i = 0; i < array.length; i++) {
+    let item = callback(array[i], i, array);
+    result[result.length] = item;
+  }
+  return result;
+};
 
-module.exports = { pushPoly, slicePoly, filterPoly,forEachPoly,includesPoly };
+function indexOfPoly(array, searchElement, fromIndex) {
+  fromIndex = fromIndex >= 0 ? fromIndex : 0;
+  for (let i = fromIndex; i < array.length; i++) {
+    if (array[i] === searchElement) return i;
+  }
+  return -1;
+};
+function splicePoly(array, start, deleteCount, ...items) {
+  const result = [];
+  const length = array.length;
+  start = start >= 0 ? start : Math.max(length + start, 0);
+  deleteCount = Math.min(Math.max(deleteCount, 0), length - start);
+
+  for (let i = start; i < length - deleteCount; i++) {
+    array[i] = array[i + deleteCount];
+  }
+  for (let i = 0; i < deleteCount; i++) {
+    result[i] = array[start + i];
+  }
+  for (let i = length - deleteCount; i < length - deleteCount + items.length; i++) {
+    array[i] = items[i - length + deleteCount];
+  }
+  array.length = length - deleteCount + items.length;
+  return result;
+};
+
+module.exports = { pushPoly, slicePoly, filterPoly, forEachPoly, includesPoly, mapPoly,splicePoly,indexOfPoly };

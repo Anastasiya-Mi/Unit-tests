@@ -1,3 +1,5 @@
+const { includesPoly, indexOfPoly, splicePoly } = require("../src/00_utils");
+
 function omit(object, value) {
   const result = {};
   if (Array.isArray(object) || typeof object !== "object") {
@@ -5,24 +7,24 @@ function omit(object, value) {
   }
   if (Array.isArray(value) || typeof value === "string") {
     if (typeof value === "string") {
-      value = value.split(' ');
+      value = Array.of(value);
     }
     const currentValue = Object.values(object);
     const currentKey = Object.keys(object);
     for (let i = 0; i < currentKey.length; i++) {
       const key = value[i];
-      const checkValue = currentValue.includes((key));
-      const checkKey = currentKey.includes((key));
+      const checkValue = includesPoly(currentValue,key);
+      const checkKey = includesPoly(currentKey,key);
       if (checkKey || checkValue) {
-        const indexKey = currentKey.indexOf(key);
-        const indexValue = currentValue.indexOf(key);
+        const indexKey = indexOfPoly(currentKey,key);
+        const indexValue = indexOfPoly(currentValue,key);
         if (indexValue !== -1) {
-          currentKey.splice(indexValue, 1);
-          currentValue.splice(indexValue, 1);
+          splicePoly(currentKey,indexValue, 1);
+          splicePoly(currentValue,indexValue, 1);          
         }
         if (indexKey !== -1) {
-          currentKey.splice(indexKey, 1);
-          currentValue.splice(indexKey, 1);
+          splicePoly(currentKey,indexKey, 1);
+          splicePoly(currentValue,indexKey, 1);
         }
       }
     }
@@ -34,5 +36,6 @@ function omit(object, value) {
   }
   return result;
 }
+
 
 module.exports = omit;
