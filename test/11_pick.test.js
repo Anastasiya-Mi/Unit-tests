@@ -10,10 +10,10 @@ describe("pick tests", () => {
     test("Returns the new object if second argument is string", () => {
         expect(pick(object, 'a')).toEqual({ 'a': 1});
     });
-    test("Returns empty object if argument is not invalid", () => {
+    test("Returns empty object if argument invalid", () => {
         expect(pick('users', 'user')).toEqual({});
     });
-    test("Returns empty object if argument is not invalid", () => {
+    test("Returns empty object if argument invalid", () => {
         expect(pick()).toEqual({});
     });
        

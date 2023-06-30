@@ -7,10 +7,10 @@ describe("toPairs tests", () => {
     test("Returns the key-value pairs", () => {
         expect(toPairs(object)).toEqual([["a", 1], ["b", "2"], ["c", 3], ["x", 4]]);
     });   
-    test("Returns empty object if argument is not invalid", () => {
+    test("Returns empty object if argument invalid", () => {
         expect(toPairs('users')).toEqual({});
     });  
-    test("Returns empty object if argument is not invalid", () => {
+    test("Returns empty object if argument invalid", () => {
         expect(toPairs()).toEqual({});
     });
 });

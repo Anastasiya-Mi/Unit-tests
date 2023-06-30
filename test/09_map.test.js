@@ -19,13 +19,13 @@ describe("map tests", () => {
     test("Returns the new mapped array if first argument is object and second is string", () => {
         expect(map(users, 'user')).toEqual(['barney', 'fred']);
     });   
-    test("RReturns empty array if argument is not invalid", () => {
+    test("RReturns empty array if argument invalid", () => {
         expect(map([1, 2, 3])).toEqual([]);
     });
-    test("Returns empty array if argument is not invalid", () => {
+    test("Returns empty array if argument invalid", () => {
         expect(map(1)).toEqual([]);
     }); 
-    test("Returns empty array if argument is not invalid", () => {
+    test("Returns empty array if argument  invalid", () => {
         expect(map()).toEqual([]);
     });   
 });

@@ -9,10 +9,10 @@ describe("zip tests", () => {
     test("Returns the new array of grouped elements if arrays with different length", () => {
         expect(zip(['a', 'b'], [1, 2], [true, false,false])).toEqual([['a', 1, true], ['b', 2, false],[false]]);
     });
-    test("Returns empty array if argument is not invalid", () => {
+    test("Returns empty array if argument invalid", () => {
         expect(zip('users', 'user')).toEqual([]);
     });   
-    test("Returns empty array if argument is not invalid", () => {
+    test("Returns empty array if argument invalid", () => {
         expect(zip('aaaa')).toEqual([]);
     });  
     test("Returns an array if argument is single array", () => {

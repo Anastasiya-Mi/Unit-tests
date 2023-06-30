@@ -14,13 +14,13 @@ describe("omitBy tests", () => {
         expect(omitBy(object, isNumber)).toEqual({'b': '2'});
     });  
     
-    test("Returns empty object if argument is not invalid", () => {
+    test("Returns empty object if argument invalid", () => {
         expect(omitBy('users', 'user')).toEqual({});
     });
-    test("Returns empty object if argument is not invalid", () => {
+    test("Returns empty object if argument invalid", () => {
         expect(omitBy(object, 1)).toEqual({});
     });
-    test("Returns empty object if argument is not invalid", () => {
+    test("Returns empty object if argument invalid", () => {
         expect(omitBy()).toEqual({});
     });
 });

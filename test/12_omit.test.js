@@ -13,10 +13,10 @@ describe("omit tests", () => {
     test("Returns the new object if second argument is string", () => {
         expect(omit(object, 'xxx')).toEqual({ 'a': 1, 'b': '2', 'c': 3, 'x': 4 });
     });
-    test("Returns empty object if argument is not invalid", () => {
+    test("Returns empty object if argument invalid", () => {
         expect(omit('users', 'user')).toEqual({});
     });
-    test("Returns empty object if argument is not invalid", () => {
+    test("Returns empty object if argument invalid", () => {
         expect(omit(object, 1)).toEqual({});
     });
 });

@@ -14,13 +14,13 @@ describe("pickBy tests", () => {
         expect(pickBy(object, isNumber)).toEqual({ 'a': 1, 'c': 3 });
     });  
     
-    test("Returns empty object if argument is not invalid", () => {
+    test("Returns empty object if argument invalid", () => {
         expect(pickBy('users', 'user')).toEqual({});
     });
-    test("Returns empty object if argument is not invalid", () => {
+    test("Returns empty object if argument invalid", () => {
         expect(pickBy(object, 1)).toEqual({});
     });
-    test("Returns empty object if argument is not invalid", () => {
+    test("Returns empty object if argument invalid", () => {
         expect(pickBy()).toEqual({});
     });
 });

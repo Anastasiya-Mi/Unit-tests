@@ -16,7 +16,7 @@ describe("compact tests", () => {
   test("Returns the empty array if argument is not an array", () => {
     expect(compact("aaaaa")).toEqual([]);
   });
-  test("Returns an empty array if both arguments are invalid", () => {
+  test("Returns an empty array if both arguments invalid", () => {
     expect(compact()).toEqual([]);
   });
 });
